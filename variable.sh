@@ -5,3 +5,6 @@ b=devops
 
 echo ${a}times
 echo $b training
+
+Date=$(date +%F)
+echo Today date is $Date
