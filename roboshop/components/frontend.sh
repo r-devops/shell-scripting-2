@@ -2,7 +2,7 @@
 
 USER_ID=$(id -u)
 if [ "$USER_ID" -ne 0 ]; then
-  echo you shoul drun your script as a sudo or root user
+  echo you should run your script as a sudo or root user
   exit 1
 fi
 echo -e "\e[36m installing Nginx \e[0m"
