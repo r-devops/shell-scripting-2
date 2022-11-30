@@ -9,3 +9,4 @@ Print_Message() {
 
 }
 Print_Message Devops
+  echo "First argument in main script = $1 "
