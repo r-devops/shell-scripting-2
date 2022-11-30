@@ -4,6 +4,8 @@ Print_Message() {
 
   echo Hello,
   echo Good Morning
-  echo Welcome to Devops Trainig
+  echo Welcome to ${1} Trainig
+  echo "First argument in function = $1"
+
 }
-Print_Message
+Print_Message Devops
