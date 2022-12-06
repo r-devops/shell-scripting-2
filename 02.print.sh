@@ -2,4 +2,4 @@
 
 echo Hello India
 
-echo -e "\e[31mMaska\[0m in red color"
+echo -e "\e[31mMaska\e[0m in red color"
