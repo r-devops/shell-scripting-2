@@ -31,11 +31,13 @@ print "Cleanup old Nginx content"
 rm -rf /usr/share/nginx/html/*
 StatCheck $?
 
+cd /usr/share/nginx/html/
+
 print "Extract new downloaded archive"
 unzip /tmp/frontend.zip && mv frontend-main/* . && mv static/* .
 StatCheck $?
 
-print "Updating Roboshop Configuration"
+print "Updating RoboShop Configuration"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 StatCheck $?
 
