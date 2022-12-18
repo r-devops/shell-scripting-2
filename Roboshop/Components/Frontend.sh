@@ -28,7 +28,7 @@ curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/fron
 StatCheck $?
 
 print "Cleanup old Nginx content"
-rm -rf /usr/share/nginx/html/*\
+rm -rf /usr/share/nginx/html/*
 StatCheck $?
 
 print "Extract new downloaded archive"
