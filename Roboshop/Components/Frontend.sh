@@ -18,11 +18,11 @@ fi
 
 echo -e "\e[36m Installing Nginx \e[0m"
 yum install nginx -y
-StatCheck()
+StatCheck $?
 
 echo -e "\e[36m Downloading Nginx Content \e[0m"
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-StatCheck()
+StatCheck $?
 
 echo -e "\e[36m Cleanup old Nginx content and Extract new downloaded archive \e[0m"
 rm -rf /usr/share/nginx/html
@@ -32,9 +32,9 @@ mv frontend-main/* .
 mv static/* .
 rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
-StatCheck()
+StatCheck $?
 
 echo -e "\e[36m Starting Nginx \e[0m"
 systemctl restart nginx
-StatCheck()
+StatCheck $?
 systemctl enable nginx
