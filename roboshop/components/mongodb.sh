@@ -18,8 +18,14 @@ print "Start MonogoDB"
 systemctl enable mongod &>>$LOG_FILE && systemctl restart mongod &>>$LOG_FILE
 StatCheck $?
 
-#Update Listen IP address from 127.0.0.1 to 0.0.0.0 in config file
-#Config file: /etc/mongod.conf
-#then restart the service
-# systemctl restart mongod
+print "Download Schema"
+curl -f -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>>$LOG_FILE
+StatCheck $?
 
+print "Extract Schema"
+cd /tmp && unzip mongodb.zip &>>$LOG_FILE
+StatCheck $?
+
+print "Load Schema"
+cd mongodb-main && mongo < catalogue.js && mongo < users.js &>>$LOG_FILE
+StatCheck $?
