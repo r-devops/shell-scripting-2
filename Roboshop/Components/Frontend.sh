@@ -17,7 +17,7 @@ if [ "$USER_ID" -ne 0 ]; then
   echo You should run your script as sudo or root user
   exit 1
 fi
-LOG_FILE=temp/Roboshop.log
+LOG_FILE=temp/roboshop.log
 rm -rf $LOG_FILE
 
 print "Installing Nginx"
