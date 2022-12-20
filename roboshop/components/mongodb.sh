@@ -21,15 +21,15 @@ fi
 LOG_FILE=/tmp/roboshop.log
 rm -rf $LOG_FILE
 
-Print "Setup YUM Repos"
+print "Setup YUM Repos"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo &>>$LOG_FILE
 StatCheck $?
 
-Print "Install MongoDb"
+print "Install MongoDb"
 yum install -y mongodb-org &>>$LOG_FILE
 StatCheck $?
 
-Print "Start MonogoDB"
+print "Start MonogoDB"
 systemctl enable mongod &>>$LOG_FILE && systemctl restart mongod &>>$LOG_FILE
 StatCheck $?
 
