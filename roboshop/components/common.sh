@@ -52,7 +52,7 @@ NODEJS() {
   StatCheck $?
 
   print "Extract App Content"
-  cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/${COMPONENT}.zip &>>${LOG_FILE} && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG_FILE}
+  cd /home/${APP_USER} &>>${LOG_FILE} && unzip /tmp/${COMPONENT}.zip &>>${LOG_FILE} && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG_FILE}
   StatCheck $?
 
   print "Install App Dependencies"
