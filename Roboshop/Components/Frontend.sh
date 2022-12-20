@@ -33,7 +33,7 @@ print "Cleanup old Nginx content"
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
 StatCheck $?
 
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html/
 
 print "Extract new downloaded archive"
 unzip /tmp/frontend.zip &>>$LOG_FILE && mv frontend-main/* . &>>$LOG_FILE && mv static/* . &>>$LOG_FILE
