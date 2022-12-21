@@ -44,7 +44,7 @@ NODEJS() {
   StatCheck $?
 
   print "Download App Component"
-  curl -f -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG_FILE}
+  curl -f -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>${LOG_FILE}
   StatCheck $?
 
   print "CleanUp OLd Content"
@@ -52,7 +52,7 @@ NODEJS() {
   StatCheck $?
 
   print "Extract App Content"
-  cd /home/${APP_USER} &>>${LOG_FILE} && unzip /tmp/${COMPONENT}.zip &>>${LOG_FILE} && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG_FILE}
+  cd /home/${APP_USER} &>>${LOG_FILE} && unzip -o /tmp/${COMPONENT}.zip &>>${LOG_FILE} && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG_FILE}
   StatCheck $?
 
   print "Install App Dependencies"
