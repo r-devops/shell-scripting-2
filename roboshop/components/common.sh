@@ -65,9 +65,7 @@ SERVICE_SETUP() {
 }
 
 NODEJS() {
-  #!/bin/bash
 
-  source components/common.sh
 
   print "Configure YUM Repos"
   curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash - &>>${LOG_FILE}
