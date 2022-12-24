@@ -55,6 +55,9 @@ SERVICE_SETUP() {
   -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' \
   -e 's/CARTENDPOINT/cart.roboshop.interval/' \
   -e 's/DBHOST/mysql.roboshop.internal/' \
+  -e 's/CARTHOST/cart.roboshop.internal/' \
+  -e 's/USERHOST/user.roboshop.internal/' \
+  -e "s/AMQPHOST/rabbitmq.roboshop.internal/" \
   /home/roboshop/${COMPONENT}/systemd.service &>>${LOG_FILE} &&
   mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>${LOG_FILE}
   StatCheck $?
@@ -99,4 +102,20 @@ MAVEN()
   StatCheck $?
 
   SERVICE_SETUP
+}
+
+PYTHON() {
+
+  print "Install Python"
+  yum install python36 gcc python3-devel -y &>>${LOG_FILE}
+  StatCheck $?
+
+  APP_SETUP
+
+  print "Install Python Dependencies"
+  cd /home/${APP_USER}/${COMPONENT} && pip3 install -r requirements.txt &>>${LOG_FILE}
+  StatCheck $?
+
+  SERVICE_SETUP
+
 }
