@@ -22,7 +22,7 @@ StatCheck $?
 
 print "Updating RoboShop Configuration"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$LOG_FILE
-for component in catalogue user cart ; do
+for component in catalogue user cart shipping; do
   echo -e "Updating $component in configuration"
 sed -i -e "/${component}/s/localhost/${component}.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
 StatCheck $?
