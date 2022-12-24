@@ -2,5 +2,5 @@
 
 source components/common.sh
 
-COMPONENTS=payment
+COMPONENT=payment
 PYTHON
